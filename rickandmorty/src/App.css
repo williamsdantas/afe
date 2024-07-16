@@ -1,37 +1,52 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+ 
+margin-top: 20px;
+
+}
+
+img{
+  height: 100%;
+  width: 100%;
+}
+.p1{
+  margin: 0;
+  margin-left: 5px;
+  font-family: "times New Roman", Times, serif;
+  font-size: 16px;
   text-align: center;
 }
 
+.divHeader{
+display: block;
+height: 100px;
+width: 100%;
+
+
+}
+
+.divTitulo{
+  display: flex;
+  padding: 8px;
+}
+
+.titulo{
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-bottom: 0px;
+  font-family: "times New Roman", Times, serif;
+  font-size: 56px;
+  font-weight: bold;
+  
+
+}
 .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 150px;
+  width: 150px;  
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
 
 .card {
   padding: 2em;

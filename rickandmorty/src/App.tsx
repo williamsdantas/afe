@@ -1,33 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Navbar, Container, Nav } from "react-bootstrap"
+import logo from './assets/logo.png'
 import './App.css'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Link } from "react-router-dom"
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [count, setCount] = useState(0)
 
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div id="_header" className="divHeader">
+        <div id="interna" className='divTitulo'>
+          <div id="logo" className="logo">
+            <img src={logo} alt="logo"></img>
+          </div>
+          <div>
+            <p className='titulo'>The Rick and Morty APP</p>
+            <Navbar expand="lg" className="bg-body-tertiary">
+              <Container>
+                <Navbar.Brand href="#home">R & M</Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Collapse id="basic-navbar-nav">
+                  <Nav className="me-auto">
+                    <Nav.Link><Link to='/'>Home</Link></Nav.Link>
+                    <Nav.Link>
+                      <Link to='/personagens'>Personagens</Link>
+                    </Nav.Link>
+                    <Nav.Link>
+                      <Link to='/episodios'>Episódios</Link>
+                    </Nav.Link>
+                  </Nav>
+                </Navbar.Collapse>
+              </Container>
+            </Navbar>
+          </div>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
     </>
   )
 }
