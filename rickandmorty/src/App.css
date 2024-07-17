@@ -2,6 +2,7 @@
  
 margin-top: 20px;
 
+
 }
 
 img{
@@ -43,10 +44,13 @@ width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 150px;
-  width: 150px;  
+  height: 145px;
+  width: 145px;  
 }
 
+.menu{
+  align-items: end;
+}
 
 .card {
   padding: 2em;
