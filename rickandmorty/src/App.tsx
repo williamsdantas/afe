@@ -22,7 +22,7 @@ function App() {
               <Container >
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                  <Nav className="me-auto menu">
+                  <Nav className="ms-auto">
                     <Nav.Link href="#personagens">Personagens</Nav.Link>
                     <Nav.Link href="#episodios">Episódios</Nav.Link>                    
                     <Nav.Link href="#dimensoens">Dimensões</Nav.Link>
