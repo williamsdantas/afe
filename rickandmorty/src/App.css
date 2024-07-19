@@ -1,21 +1,11 @@
 #root {
  
-margin-top: 20px;
+
 
 
 }
 
-img{
-  height: 100%;
-  width: 100%;
-}
-.p1{
-  margin: 0;
-  margin-left: 5px;
-  font-family: "times New Roman", Times, serif;
-  font-size: 16px;
-  text-align: center;
-}
+
 
 .divHeader{
 display: block;
@@ -25,32 +15,6 @@ width: 100%;
 
 }
 
-.divTitulo{
-  display: flex;
-  padding: 8px;
-}
-
-.titulo{
-  margin-top: 5px;
-  margin-left: 5px;
-  margin-bottom: 0px;
-  font-family: "times New Roman", Times, serif;
-  font-size: 56px;
-  font-weight: bold;
-  
-
-}
-.logo {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 145px;
-  width: 145px;  
-}
-
-.menu{
-  align-items: end;
-}
 
 .card {
   padding: 2em;
@@ -58,4 +22,10 @@ width: 100%;
 
 .read-the-docs {
   color: #888;
+}
+
+.content{
+  background-color: rgb(39, 43, 51);
+  width: 100%;
+  height: 400px;
 }
