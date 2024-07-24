@@ -1,0 +1,18 @@
+._header{
+    display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    
+    
+  }
+
+.marca{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 48px;
+    margin: 5px;
+}

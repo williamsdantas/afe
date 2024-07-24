@@ -1,18 +1,17 @@
-
 import "./App.css";
-import NavBar from "./components/navbar/navbar";
-
+import Header from "./components/header/header"
+import NavBar from "./components/navbar/navbar"
+import Home from "./pages/home/Home";
 
 function App() {
   //const [count, setCount] = useState(0)
 
   return (
     <>
-      <div >
-        <NavBar/>
-      </div>
+      <Header/>
 
-      <div className="content"> conteudo</div>
+      <Home />
+     
     </>
   );
 }
