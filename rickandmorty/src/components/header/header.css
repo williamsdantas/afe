@@ -1,18 +1,43 @@
-._header{
-    display: flex;
-   flex-direction: row;
-   align-items: center;
-   justify-content: space-between;
-    margin: 0;
-    padding: 0;
-    
-    
-  }
-
-.marca{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    font-size: 48px;
-    margin: 5px;
+._header {
+  width: 100%;
 }
+
+.navbar {
+  font-size: 1rem; /* tamanho da fonte padrão da navbar */
+  background-color: #343a40; /* Cor de fundo da navbar */
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-size: 2rem; /* Ajuste o tamanho da fonte da marca */
+}
+
+.navbar-nav {
+  gap: 20px; /* Espaço entre os itens de navegação */
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.25rem; /* Ajuste o tamanho da fonte dos links de navegação */
+  margin-left: 15px; /* Espaçamento entre os links */
+  margin-right: 15px; /* Espaçamento entre os links */
+  color: gray; /* Cor do texto dos links */
+  transition: all 0.3s ease; /* Transição suave para os efeitos de hover */
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffd700; /* Cor do texto dos links ao passar o mouse */
+  background-color: rgba(255, 255, 255, 0.2); /* Fundo do link ao passar o mouse */
+  border-radius: 5px; /* Borda arredondada para o efeito de fundo */
+  padding: 10px; /* Espaçamento interno para maior destaque */
+}
+
+.navbar-toggler {
+  font-size: 1.25rem; 
+}
+
+body {
+  padding-top: 80px; 
+}
+
+

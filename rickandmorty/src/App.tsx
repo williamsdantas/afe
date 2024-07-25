@@ -1,7 +1,7 @@
 import "./App.css";
 import Header from "./components/header/header"
-import NavBar from "./components/navbar/navbar"
 import Home from "./pages/home/Home";
+
 
 function App() {
   //const [count, setCount] = useState(0)
