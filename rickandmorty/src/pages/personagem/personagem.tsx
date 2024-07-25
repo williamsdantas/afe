@@ -11,7 +11,7 @@ const Personagem: React.FC = () => {
         <Row className="w-100 justify-content-center">
           <Col xs={12} md={6} className="central-column p-3">
             <div>
-              <h1>Personagem</h1>
+              <h1>Personagens</h1>
               <p>Detalhes do personagem serão exibidos aqui.</p>
             </div>
           </Col>
