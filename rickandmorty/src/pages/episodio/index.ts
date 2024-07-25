@@ -1,1 +1,1 @@
-export * from './episodios'
+export * from './episodio'

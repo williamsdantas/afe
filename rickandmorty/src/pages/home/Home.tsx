@@ -1,6 +1,5 @@
 import { Container, Col, Row } from "react-bootstrap";
 import "./home.css";
-import Footer from "../../components/footer/footer"
 
 export const Home = () => {
   return (

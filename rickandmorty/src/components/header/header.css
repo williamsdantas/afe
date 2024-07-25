@@ -25,7 +25,7 @@
   transition: all 0.3s ease; /* Transição suave para os efeitos de hover */
 }
 
-.navbar-nav .nav-link:hover {
+.navbar-nav .nav-link :hover {
   color: #ffd700; /* Cor do texto dos links ao passar o mouse */
   background-color: rgba(255, 255, 255, 0.2); /* Fundo do link ao passar o mouse */
   border-radius: 5px; /* Borda arredondada para o efeito de fundo */
@@ -35,6 +35,8 @@
 .navbar-toggler {
   font-size: 1.25rem; 
 }
+
+
 
 body {
   padding-top: 80px; 

@@ -5,6 +5,7 @@ import Personagem from './pages/personagem/personagem';
 import Home from './pages/home/Home';
 import {Wrapper} from './shared/wrapper/wrapper'
 import Episodio from './pages/episodio/episodio';
+import Localizacao from './pages/localizacao/localizacao';
 
 const App: React.FC = () => {
   return (
@@ -14,6 +15,7 @@ const App: React.FC = () => {
           <Route index element={<Home />} />
           <Route path="personagem" element={<Personagem />} />
           <Route path="episodio" element={<Episodio />} />
+          <Route path="localizacao" element={<Localizacao />} />
         </Route>
       </Routes>
     </Router>
