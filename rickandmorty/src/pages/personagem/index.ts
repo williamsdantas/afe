@@ -1,1 +1,1 @@
-export * from './personagens'
+export * from './personagem'

@@ -9,7 +9,7 @@ export default function Header() {
     <Row className="_header">
       <Navbar expand="lg" className="bg-body-tertiary fixed-top">
         <Container>
-          <Navbar.Brand href="/home" className="d-flex align-items-center">
+          <Navbar.Brand href="/#home" className="d-flex align-items-center">
             <img src={logo} alt="Rick and Morty logo" height="80px" style={{ marginRight: '20px' }} />
             Rick and Morty
           </Navbar.Brand>

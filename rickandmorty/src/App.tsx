@@ -1,19 +1,23 @@
-import "./App.css";
-import Header from "./components/header/header"
-import Home from "./pages/home/Home";
+import React from 'react';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import './App.css';
+import Personagem from './pages/personagem/personagem';
+import Home from './pages/home/Home';
+import {Wrapper} from './shared/wrapper/wrapper'
+import Episodio from './pages/episodio/episodio';
 
-
-function App() {
-  //const [count, setCount] = useState(0)
-
+const App: React.FC = () => {
   return (
-    <>
-      <Header/>
-
-      <Home />
-     
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Wrapper />}>
+          <Route index element={<Home />} />
+          <Route path="personagem" element={<Personagem />} />
+          <Route path="episodio" element={<Episodio />} />
+        </Route>
+      </Routes>
+    </Router>
   );
-}
+};
 
 export default App;
