@@ -5,7 +5,7 @@ import {RickandMortyAPI} from "../rickandmortyAPI";
 import {EpisodioType} from "../../../types/EpisodioType"
 
 
-export const getPersonagens = async (): Promise<EpisodioType[]> =>{
+export const getTodosEpisodios = async (): Promise<EpisodioType[]> =>{
     try {
       const response = await RickandMortyAPI.get('/episode');
       

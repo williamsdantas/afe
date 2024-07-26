@@ -14,7 +14,7 @@ created	  | string	 |   Time at which the location was created in the database.
 import {LocationType} from "../../../types/LocationType";
 import { RickandMortyAPI } from "../rickandmortyAPI";
 
-export const getLocation = async (): Promise<LocationType[]> => {
+export const getTodasLocation = async (): Promise<LocationType[]> => {
     try {
         const response = await RickandMortyAPI.get('/location');
         

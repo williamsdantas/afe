@@ -2,17 +2,29 @@
 */
 
 import {RickandMortyAPI} from "../rickandmortyAPI";
-import {PersonagemType} from "../../../types/PersonagemType";
+import {PersonagemResponse} from "../../../types/PersonagemType";
 
 
-export const getPersonagens = async (): Promise<PersonagemType[]> =>{
+export const getTodosPersonagens = (pagina: number): Promise<PersonagemResponse> => {
+    return new Promise((resolve, reject) => {
+        RickandMortyAPI.get(`/character?pagina=${pagina}`)
+            .then(response => {
+              resolve(response.data);
+            })
+            .catch(error => {
+              console.error('Erro recuperando os personagens:', error);
+              reject(error);
+        });
+    });
+};
+
+  export const getPersonagem= async (id: string): Promise<PersonagemResponse> =>{
     try {
-      const response = await RickandMortyAPI.get('/character');
-      
+      const response = await RickandMortyAPI.get(`/character/${id}`);
       return response.data;
 
     } catch (error) {
-      console.error('Não foi possível recuperar os personagens:', error);
+      console.error('Não foi possível recuperar o personagem:', error);
       throw error;
     }
   };
