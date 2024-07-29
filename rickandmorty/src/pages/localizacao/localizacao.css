@@ -1,15 +1,12 @@
-.central-column {
-    display: flex;
-    flex-direction: column;
-    min-height: 80vh;
-    /* Altura responsiva, centralizado verticalmente */
-    max-width: 100%;
-    /* Limite máximo de largura */
-    padding: 20px;
-    border-radius: 8px;
-    background-color: white;
-    overflow: hidden;
-    margin: auto;
+.central-column1 {
+  display: flex;
+  text-align: center;
+  flex-direction: column;
+  min-height: 80vh;
+  padding: 30px;
+  margin-top: 80px;
+  border-radius: 8px;
+  background-color: white;
   }
   
   
@@ -21,11 +18,12 @@
     transition: transform 0.2s;
   }
   
-  .localizacao-card:hover {
+  .localizacao-card1:hover {
     transform: scale(1.05);
+    background-color: #e9ecee;
   }
   
-  .localizacao-card h3 {
+  .localizacao-card1 h3 {
     margin-bottom: 10px;
   }
   
@@ -43,5 +41,12 @@
 
   .localizacao-container{
     margin-top: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    max-height: 90vh;
+    overflow-y: auto;
+    background-color: #bcbfc1; 
   }
   

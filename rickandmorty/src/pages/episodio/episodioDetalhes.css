@@ -13,9 +13,9 @@
     flex-wrap: wrap;
     gap: 15px;
     padding: 20px;
-    max-height: 90vh; /* Ajuste conforme necessário */
+    max-height: 90vh;
     overflow-y: auto;
-    background-color: #bcbfc1; /* Altere para a cor de fundo desejada */
+    background-color: #bcbfc1; 
 }
 
 .personagem-card {
