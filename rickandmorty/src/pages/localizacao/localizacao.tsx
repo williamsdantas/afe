@@ -79,6 +79,7 @@ const Localizacao: React.FC = () => {
                 <h3>{localizacao.name}</h3>
                 <p><strong>Tipo:</strong> {localizacao.type}</p>
                 <p><strong>Dimensão:</strong> {localizacao.dimension}</p>
+                <p><strong>Residentes:</strong> {localizacao.residents.length}</p>
               </div>
             </Link>
           </Col>
