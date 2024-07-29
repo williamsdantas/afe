@@ -25,8 +25,13 @@ const PersonagemDetalhes: React.FC = () => {
             setPersonagem(personagemData);
 
             //busca a localização por id
-            const locationData = await getLocationPorId(id);
-            setLocation(locationData);
+            const idloc: string =personagemData.location.url.split("/").pop();
+            if(idloc.length>0){
+                const locationData = await getLocationPorId(idloc);
+                setLocation(locationData);
+
+            }
+            
 
             const episodeIds = personagemData.episode.map((url) => url.split("/").pop()!).join(",");
 

@@ -4,7 +4,7 @@ import { LocationType, PersonagemType } from "../../types";
 import { getLocationPorId } from "../../services/api/locationAPI/locationAPI";
 import { getPersonagemPorId } from "../../services/api/personagemAPI/personagemAPI";
 import Loading from "../../components/loading/loading";
-import { Button, Card, Container, Image, Row } from "react-bootstrap";
+import { Button, Card, CardText, Container, Image, Row } from "react-bootstrap";
 
 const LocalizacaoDetalhes: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -24,9 +24,7 @@ const LocalizacaoDetalhes: React.FC = () => {
 
       //extrai os ids dos residentes
       if (locationData.residents.length > 0) {
-        const personagemIds = locationData.residents
-          .map((url) => url.split("/").pop()!)
-          .join(",");
+        const personagemIds = locationData.residents.map((url) => url.split("/").pop()!).join(",");
 
         //busca os residentes por um conjunto de ids, numa unica chamada
         const personagensData = await getPersonagemPorId(personagemIds);
@@ -78,11 +76,13 @@ const LocalizacaoDetalhes: React.FC = () => {
             <Card
               key={personagem.id}
               className="personagem-card"
-              onClick={() => navigate(`/personagem/${personagem.id}`)}
+              onClick={() => {console.log(personagem.id)
+                navigate(`/personagem/${personagem.id}`)}}
             >
               <Image src={personagem.image} alt={personagem.name} thumbnail />
               <Card.Body>
                 <Card.Title>{personagem.name}</Card.Title>
+                <CardText>ID: {personagem.id}</CardText>
               </Card.Body>
             </Card>
           ))}
