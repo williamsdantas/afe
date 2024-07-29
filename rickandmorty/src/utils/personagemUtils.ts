@@ -1,5 +1,6 @@
 import { PersonagemType } from "../types";
 
+//Gera ma descrição ironica dos personagens com base nas suas caractarísticas
 export const obterDescricaoIronica = (personagem: PersonagemType): string => {
     const { status, species, gender, location } = personagem;
   
