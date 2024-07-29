@@ -11,18 +11,18 @@ created	  | string	 |   Time at which the location was created in the database.
  */
 
 
-import {LocationType} from "../../../types/LocationType";
+import { LocationResponse } from "../../../types/LocationType";
 import { RickandMortyAPI } from "../rickandmortyAPI";
 
-export const getTodasLocation = async (): Promise<LocationType[]> => {
-    try {
-        const response = await RickandMortyAPI.get('/location');
-        
-        return response.data;
-  
-      } catch (error) {
-        console.error('Não foi possível recuperar as localizações:', error);
-        throw error;
-      }
+export const getTodasLocation = async (pagina: number): Promise<LocationResponse> => {
+  try {
+    const response = await RickandMortyAPI.get(`/location?page=${pagina}`);
+
+    return response.data;
+
+  } catch (error) {
+    console.error('Não foi possível recuperar as localizações:', error);
+    throw error;
   }
+}
 

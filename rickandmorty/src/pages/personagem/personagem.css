@@ -1,23 +1,44 @@
 .central-column {
-    background-color: rgba(255, 255, 255, 0.8); /* Fundo branco com transparência */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    max-width: 800px; /* Ajuste o tamanho conforme necessário */
-    margin: auto; /* Centraliza horizontalmente */
-  }
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  /* Altura responsiva, centralizado verticalmente */
+  max-width: 100%;
+  /* Limite máximo de largura */
+  padding: 20px;
+  border-radius: 8px;
+  background-color: white;
+  overflow: hidden;
+  margin: auto;
+}
+
+
+.pagination-controls {
+  display: flexbox;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.pagination-controls span {
+  margin: 0 10px;
+}
+
+.personagem-carousel {
+  margin-bottom: 10px;
+  /* Espaço abaixo do carousel */
+  background-color: #bcbfc1;
+  /* Altere para a cor de fundo desejada */
+  padding: 20px;
+  /* Adiciona espaçamento interno ao Carousel */
+  border-radius: 10px;
+  /* Adiciona bordas arredondadas, se desejado */
+  gap: 5px;
   
-  .card {
-    text-align: left;
-  }
+
+}
+
+.personagem-carousel .carousel-item {
+  /* Garante que os itens do Carousel também tenham a cor de fundo */
+  background-color: inherit;
   
-  .pagination-controls {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 20px;
-  }
-  
-  .pagination-controls span {
-    margin: 0 10px;
-  }
+}

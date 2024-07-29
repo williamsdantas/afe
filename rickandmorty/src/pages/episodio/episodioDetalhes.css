@@ -1,0 +1,38 @@
+.episodio-detalhes {
+    margin-top: 100px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+}
+
+.personagens-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.personagem-card {
+    flex: 0 0 auto;
+    width: 150px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.personagem-card:hover {
+    background-color: #f8f9fa;
+}
+
+.personagem-image {
+    width: 100%;
+    height: auto;
+}
+
+.personagem-name {
+    margin-top: 10px;
+}
+
+.navegacao {
+    margin-top: 20px;
+   }

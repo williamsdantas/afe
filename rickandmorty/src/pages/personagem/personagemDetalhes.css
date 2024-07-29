@@ -1,0 +1,53 @@
+.central-column {
+    display: flex;
+      text-align: center;
+      flex-direction: column;
+      min-height: 90vh; /* Altura responsiva, centralizado verticalmente */
+      padding: 30px;
+      border-radius: 8px;
+      background-color: white;
+  }
+  
+  
+.personagem-detalhes {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 100px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 255);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 100%;
+}
+
+.episodios-container {
+    display: flex;
+    max-height: 300px;
+    padding: 10px;
+    background-color: #bcbfc1;
+}
+
+.episodio-card-container {
+    margin-top: 10px;
+    display: flex;
+    overflow-y: auto;
+    background-color: #bcbfc1; /* Altere para a cor de fundo desejada */
+    padding: 10px;
+}
+
+.episodio-card {
+    max-width: 250px;
+    
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.episodio-card:hover {
+    background-color: #f8f9fa;
+    transform: scale(1.05);
+
+}
+
+.navegacao {
+   margin-top: 20px;
+  }

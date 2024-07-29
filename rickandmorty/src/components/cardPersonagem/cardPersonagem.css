@@ -1,0 +1,32 @@
+.personagem-card {
+  max-height: 150px; /* Ajuste conforme necessário */
+  width: 100%;
+  overflow: hidden;
+  
+}
+
+
+.personagem-imagem {
+  width: 100%;
+  height: auto;
+  max-height: 100px; /* Ajuste conforme necessário */
+  object-fit: cover;
+}
+
+.personagem-texto {
+  text-align: justify;
+  margin-left: 10px;
+}
+
+
+.custom-card-width {
+  width: 100%;
+  margin: 10px;
+}
+
+.custom-card-width .card-img-top {
+  height: 200px;
+  object-fit: cover;
+}
+
+

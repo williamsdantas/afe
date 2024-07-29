@@ -12,6 +12,7 @@
  *  
  */
 
+
 export interface EpisodioType {
   id: number;
   name: string;
@@ -20,4 +21,14 @@ export interface EpisodioType {
   characters: string[];
   url: string;
   created: string;
+}
+
+export interface EpisodioResponse {
+  info: {
+    count: number;
+    pages: number;
+    next: string | null;
+    prev: string | null;
+  };
+  results: EpisodioType[];
 }

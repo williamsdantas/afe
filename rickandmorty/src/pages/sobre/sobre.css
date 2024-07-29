@@ -1,0 +1,20 @@
+/* sobre.css */
+.central-column {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+}
+
+section {
+  text-align: center;
+}
+
+h1 {
+  
+  margin-bottom: 20px;
+}
+
+
+  
+

@@ -1,0 +1,35 @@
+/* episodio.css */
+.episodios-container {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    min-height: 80vh; /* Altura responsiva, centralizado verticalmente */
+    padding: 30px;
+    margin-top: 80px;
+    border-radius: 8px;
+    background-color: white;
+  }
+  
+  .episodios-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+    padding: 20px;
+    max-height: 85vh; /* Ajuste conforme necessário */
+    overflow-y: auto;
+    background-color: #bcbfc1; /* Altere para a cor de fundo desejada */
+  }
+  
+  .episodio-card {
+    cursor: pointer;
+    flex: 0 0 auto;
+  }
+  
+ 
+  
+  .episodio-card:hover {
+    transform: scale(1.05);
+    background-color: #f8f9fa;
+}
+
+  

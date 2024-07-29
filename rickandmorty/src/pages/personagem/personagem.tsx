@@ -1,76 +1,107 @@
 import React, { useEffect, useState } from "react";
-import { Container, Col, Row, Card, Button } from "react-bootstrap";
+import { Col, Row, Carousel, Pagination } from "react-bootstrap";
 import { PersonagemType, PersonagemResponse } from "../../types";
 import { getTodosPersonagens } from "../../services/api/personagemAPI/personagemAPI";
 import './personagem.css';
+import CardPersonagem from "../../components/cardPersonagem/cardPersonagem";
+import Loading from "../../components/loading/loading";
 
 const Personagem: React.FC = () => {
   const [personagens, setPersonagens] = useState<PersonagemType[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [pagina, setPagina] = useState(1);
-  const limite = 6;
+  const [loading, setLoading] = useState<boolean>(true);
+  const [pagina, setPagina] = useState<number>(1);
+  const [totalPaginas, setTotalPaginas] = useState<number>(1);
 
   useEffect(() => {
     setLoading(true);
+
     getTodosPersonagens(pagina)
       .then((data: PersonagemResponse) => {
         setPersonagens(data.results);
+        setTotalPaginas(data.info.pages);
         setLoading(false);
       })
       .catch(error => {
         console.error('Falha ao recuperar os personagens:', error);
         setLoading(false);
       });
+
   }, [pagina]);
 
-  const handleNextPage = () => {
-    setPagina((prevPagina) => prevPagina + 1);
+  const handlePageChange = (pagina: number) => {
+    setPagina(pagina);
   };
 
-  const handlePreviousPage = () => {
-    setPagina((prevPagina) => (prevPagina > 1 ? prevPagina - 1 : 1));
+  const dividirEmSlides = (personagens: PersonagemType[]) => {
+    const slides = [];
+    const cardsPorSlide = 5;
+    for (let i = 0; i < personagens.length; i += cardsPorSlide) {
+      slides.push(personagens.slice(i, i + cardsPorSlide));
+    }
+    return slides;
+  };
+
+  const renderPagination = () => {
+    const items: React.ReactNode[] = [];
+
+    if (totalPaginas <= 1) return null;
+
+    // Página 1 e Elipses
+    items.push(
+      <Pagination.First key="first" onClick={() => handlePageChange(1)} disabled={pagina === 1} />
+    );
+
+    if (pagina > 3) items.push(<Pagination.Ellipsis key="ellipsis-start" />);
+
+    // Páginas intermediárias
+    for (let i = Math.max(1, pagina - 2); i <= Math.min(totalPaginas, pagina + 2); i++) {
+      items.push(
+        <Pagination.Item
+          key={i}
+          active={i === pagina}
+          onClick={() => handlePageChange(i)}
+        >
+          {i}
+        </Pagination.Item>
+      );
+    }
+
+    if (pagina < totalPaginas - 2) items.push(<Pagination.Ellipsis key="ellipsis-end" />);
+
+    // Última Página
+    items.push(
+      <Pagination.Last key="last" onClick={() => handlePageChange(totalPaginas)} disabled={pagina === totalPaginas} />
+    );
+
+    return items;
   };
 
   if (loading) {
-    return <p>Carregando dados dos personagens...</p>;
+    return <Loading />;
   }
 
-  const personagensPaginados = personagens.slice(0, limite);
+  const slides = dividirEmSlides(personagens);
 
   return (
-    <Container fluid className="d-flex justify-content-center align-items-center min-vh-100">
-      <Row className="w-100 justify-content-center">
-        <Col xs={12} className="central-column p-3">
-          <div>
-            <h1>Personagens</h1>
-            <Row>
-              {personagensPaginados.map((personagem) => (
-                <Col key={personagem.id} xs={12} md={6} lg={4} className="mb-4">
-                  <Card>
-                    <Card.Img variant="top" src={personagem.image} alt={personagem.name} />
-                    <Card.Body>
-                      <Card.Title>{personagem.name}</Card.Title>
-                      <Card.Text>{personagem.species}</Card.Text>
-                      <Card.Text>{personagem.gender}</Card.Text>
-                      <Card.Text>{personagem.status}</Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Col>
-              ))}
-            </Row>
-            <div className="pagination-controls">
-              <Button onClick={handlePreviousPage} disabled={pagina === 1}>
-                Anterior
-              </Button>
-              <span>Página {pagina}</span>
-              <Button onClick={handleNextPage}>
-                Próximo
-              </Button>
-            </div>
-          </div>
-        </Col>
-      </Row>
-    </Container>
+      <div className="central-column">
+        <header><h1>Personagens</h1></header>
+        <Carousel interval={5000} controls indicators className="personagem-carousel">
+          {slides.map((slide, index) => (
+            <Carousel.Item key={index}>
+              <Row >
+                {slide.map(personagem => (
+                  <Col key={personagem.id} xs={12} sm={6} md={4} lg={2} className="mb-4">
+                    <CardPersonagem personagem={personagem} />
+                  </Col>
+                ))}
+              </Row>
+            </Carousel.Item>
+          ))}
+        </Carousel>
+        <div className="pagination-controls mt-4">
+          <Pagination>{renderPagination()}</Pagination>
+        </div>
+      </div>
   );
 };
 

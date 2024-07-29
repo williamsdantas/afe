@@ -33,6 +33,9 @@ const Header: React.FC = () => {
               <LinkContainer to="/localizacao">
                 <Nav.Link className="nav-link">Localizações</Nav.Link>
               </LinkContainer>
+              <LinkContainer to="/sobre">
+                <Nav.Link className="nav-link">Sobre</Nav.Link>
+              </LinkContainer>
             </Nav>
           </Navbar.Collapse>
         </Container>
