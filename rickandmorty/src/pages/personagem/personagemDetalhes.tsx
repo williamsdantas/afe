@@ -1,18 +1,20 @@
 // PersonagemDetalhes.tsx
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import {  Image, Button, Card } from "react-bootstrap";
-import { PersonagemType, EpisodioType } from "../../types";
+import { PersonagemType, EpisodioType, LocationType } from "../../types";
 import { getPersonagemPorId } from "../../services/api/personagemAPI/personagemAPI";
 import { getEpisodioPorId } from "../../services/api/episodioAPI/episodioAPI";
 import './personagemDetalhes.css';
 import Loading from "../../components/loading/loading";
+import { getLocationPorId } from "../../services/api/locationAPI/locationAPI";
 
 const PersonagemDetalhes: React.FC = () => {
     const { id } = useParams<{ id: string }>();
     const navigate = useNavigate();
     const [personagem, setPersonagem] = useState<PersonagemType | null>(null);
     const [episodios, setEpisodios] = useState<EpisodioType>();
+    const [location, setLocation] = useState<LocationType | null>(null);
     const [loading, setLoading] = useState<boolean>(true);
 
     const fetchData = async (id: string) => {
@@ -22,7 +24,12 @@ const PersonagemDetalhes: React.FC = () => {
             const personagemData = await getPersonagemPorId(id);
             setPersonagem(personagemData);
 
+            //busca a localização por id
+            const locationData = await getLocationPorId(id);
+            setLocation(locationData);
+
             const episodeIds = personagemData.episode.map((url) => url.split("/").pop()!).join(",");
+
             const episodiosData = await getEpisodioPorId(episodeIds);
             setEpisodios(Array.isArray(episodiosData) ? episodiosData : [episodiosData]);
 
@@ -58,13 +65,16 @@ const PersonagemDetalhes: React.FC = () => {
                             <p><strong>Status:</strong> {personagem.status}</p>
                             <p><strong>Espécie:</strong> {personagem.species}</p>
                             <p><strong>Gênero:</strong> {personagem.gender}</p>
-                            <strong> {personagem.origin.name} - url :</strong> {personagem.origin.url}
-                            <p><strong> Última Localização: </strong>{personagem.location.name}</p>
-                            <p><strong>url:</strong> {personagem.location.url}</p>
+                            <p><strong>Origem:</strong> {personagem.origin.name}</p>
+                            <p><strong> Última Localização: </strong> {" "}
+                            {location ? 
+                                (<Link to={`/localizacao/${location.id}`}>{location.name}</Link>
+                                ) : ("Desconhecida")}
+                            
+                            </p>
                         </Card.Text>
                     </Card.Body>
-                </Card>
-               
+                </Card>               
             </div>
             <Card >
                 <Card.Body>

@@ -71,8 +71,8 @@ const Localizacao: React.FC = () => {
   return (
     <div className="central-column">
       <header><h1>Localizações</h1></header>
-      <Row>
-        {localizacoes.map(localizacao => (
+      <Row className="localizacao-container">
+        {localizacoes?.results.map(localizacao => (
           <Col key={localizacao.id} xs={12} sm={6} md={4} lg={3} className="mb-4">
             <Link to={`/localizacao/${localizacao.id}`} className="localizacao-card-link">
               <div className="localizacao-card">

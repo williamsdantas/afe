@@ -8,6 +8,7 @@ import Episodio from './pages/episodio/episodio';
 import Localizacao from './pages/localizacao/localizacao';
 import PersonagemDetalhes from './pages/personagem/personagemDetalhes';
 import EpisodioDetalhes from './pages/episodio/episodioDetalhes';
+import LocalizacaoDetalhes from './pages/localizacao/localizacaoDetalhes';
 
 const App: React.FC = () => {
   return (
@@ -20,6 +21,7 @@ const App: React.FC = () => {
           <Route path="episodio" element={<Episodio />} />
           <Route path="/episodio/:id" element={<EpisodioDetalhes />} />
           <Route path="localizacao" element={<Localizacao />} />
+          <Route path="/localizacao/:id" element={<LocalizacaoDetalhes />} />
           <Route path="sobre" element={<Sobre />} />
         </Route>
       </Routes>

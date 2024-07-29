@@ -22,6 +22,7 @@ const EpisodioDetalhes: React.FC = () => {
             setEpisodio(episodioData);
 
             const personagemIds = episodioData.characters.map((url) => url.split("/").pop()!).join(",");
+
             const personagensData = await getPersonagemPorId(personagemIds);
             setPersonagens(Array.isArray(personagensData) ? personagensData : [personagensData]);
 
@@ -48,7 +49,7 @@ const EpisodioDetalhes: React.FC = () => {
 
     return (
         <div className="episodio-detalhes">
-            <header><h1>{episodio.name}</h1></header>
+            <header><h1>Episódio: {episodio.name}</h1></header>
             <p><strong>Data de Estreia:</strong> {episodio.air_date}</p>
             <h2>Personagens</h2>
             <div className="personagens-container">

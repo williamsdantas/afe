@@ -4,7 +4,7 @@ import "./sobre.css";
 
 const Sobre: React.FC = () => {
   return (
-    <Container fluid className="d-flex justify-content-center align-items-center min-vh-100">
+    <Container fluid className="d-flex justify-content-center align-items-center ">
       <Row className="w-100 justify-content-center">
         <Col xs={12} md={8} className="central-column p-3">
           <section>

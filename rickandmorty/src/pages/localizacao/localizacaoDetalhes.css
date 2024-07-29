@@ -1,5 +1,5 @@
 .central-column {
-    display: flex;
+    display: grid;
     flex-direction: column;
     min-height: 80vh;
     /* Altura responsiva, centralizado verticalmente */
@@ -14,7 +14,7 @@
   
   
   .localizacao-card {
-    background: #fff;
+    background: #c7c6c6;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -32,7 +32,6 @@
   .localizacao-card-link {
     text-decoration: none;
     color: inherit;
-    
   }
   
   .pagination-controls {
@@ -41,7 +40,13 @@
     margin-top: 20px;
   }
 
-  .localizacao-container{
-    margin-top: 30px;
-  }
+  .personagens-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+
+  
+
   

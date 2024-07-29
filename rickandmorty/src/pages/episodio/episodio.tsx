@@ -13,7 +13,9 @@ const Episodio: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [pagina, setPagina] = useState<number>(1);
   const [totalPaginas, setTotalPaginas] = useState<number>(1);
+  
   const navigate = useNavigate();
+  
   const fetchData = async () => {
     setLoading(true);
 
