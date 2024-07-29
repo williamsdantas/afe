@@ -1,8 +1,9 @@
-.central-column {
+.central-column1 {
+    margin-top: 40px;
     display: flex;
       text-align: center;
       flex-direction: column;
-      min-height: 90vh; /* Altura responsiva, centralizado verticalmente */
+      min-height: 90vh; 
       padding: 30px;
       border-radius: 8px;
       background-color: white;
@@ -11,8 +12,9 @@
   
 .personagem-detalhes {
     display: flex;
-    flex-wrap: wrap;
-    margin-top: 100px;
+    flex-direction: row;
+    overflow: hidden;
+    margin-top: 60px;
     padding: 20px;
     background-color: rgba(255, 255, 255, 255);
     border-radius: 8px;
@@ -27,12 +29,15 @@
     background-color: #bcbfc1;
 }
 
-.episodio-card-container {
+.episodio-card-container1 {
     margin-top: 10px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    max-height: 90vh; 
     overflow-y: auto;
-    background-color: #bcbfc1; /* Altere para a cor de fundo desejada */
-    padding: 10px;
+    background-color: #bcbfc1; 
 }
 
 .episodio-card {
@@ -51,3 +56,4 @@
 .navegacao {
    margin-top: 20px;
   }
+

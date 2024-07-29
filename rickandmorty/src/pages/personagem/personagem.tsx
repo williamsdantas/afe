@@ -5,6 +5,7 @@ import { getTodosPersonagens } from "../../services/api/personagemAPI/personagem
 import './personagem.css';
 import CardPersonagem from "../../components/cardPersonagem/cardPersonagem";
 import Loading from "../../components/loading/loading";
+import { obterDescricaoIronica } from "../../utils/personagemUtils";
 
 const Personagem: React.FC = () => {
   const [personagens, setPersonagens] = useState<PersonagemType[]>([]);
@@ -12,12 +13,15 @@ const Personagem: React.FC = () => {
   const [pagina, setPagina] = useState<number>(1);
   const [totalPaginas, setTotalPaginas] = useState<number>(1);
 
+  
+  
   useEffect(() => {
     setLoading(true);
 
     getTodosPersonagens(pagina)
       .then((data: PersonagemResponse) => {
         setPersonagens(data.results);
+
         setTotalPaginas(data.info.pages);
         setLoading(false);
       })
@@ -91,7 +95,8 @@ const Personagem: React.FC = () => {
               <Row >
                 {slide.map(personagem => (
                   <Col key={personagem.id} xs={12} sm={6} md={4} lg={2} className="mb-4">
-                    <CardPersonagem personagem={personagem} />
+                    
+                    <CardPersonagem personagem={personagem} descricao={obterDescricaoIronica(personagem)} />
                   </Col>
                 ))}
               </Row>

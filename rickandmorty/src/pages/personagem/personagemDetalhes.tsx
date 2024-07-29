@@ -1,13 +1,14 @@
 // PersonagemDetalhes.tsx
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
-import {  Image, Button, Card } from "react-bootstrap";
+import {  Image, Button, Card, CardImg, Row, Col } from "react-bootstrap";
 import { PersonagemType, EpisodioType, LocationType } from "../../types";
 import { getPersonagemPorId } from "../../services/api/personagemAPI/personagemAPI";
 import { getEpisodioPorId } from "../../services/api/episodioAPI/episodioAPI";
 import './personagemDetalhes.css';
 import Loading from "../../components/loading/loading";
 import { getLocationPorId } from "../../services/api/locationAPI/locationAPI";
+import { obterDescricaoIronica } from "../../utils/personagemUtils";
 
 const PersonagemDetalhes: React.FC = () => {
     const { id } = useParams<{ id: string }>();
@@ -60,31 +61,35 @@ const PersonagemDetalhes: React.FC = () => {
     }
 
     return (
-        <div className="central-column">
+        <div className="central-column1">
             <header><h1>{personagem.name}</h1></header>
-            <div className="episodio-card-container">
-                <Image src={personagem.image} alt={personagem.name} thumbnail />
-                <Card >
-                    <Card.Body>                      
-                        <Card.Text>
-                            <p><strong>Status:</strong> {personagem.status}</p>
-                            <p><strong>Espécie:</strong> {personagem.species}</p>
-                            <p><strong>Gênero:</strong> {personagem.gender}</p>
-                            <p><strong>Origem:</strong> {personagem.origin.name}</p>
-                            <p><strong> Última Localização: </strong> {" "}
-                            {location ? 
-                                (<Link to={`/localizacao/${location.id}`}>{location.name}</Link>
-                                ) : ("Desconhecida")}
-                            
-                            </p>
-                        </Card.Text>
+            <div >                
+                <Card className="personagem-detalhes mb-4">
+                    <Row noGutters className="d-flex ">
+                        <Col md={4}>
+                            <Card.Img variant="top" src={personagem.image} alt={personagem.name}  />
+                        </Col>
+                        <Col md={8}>
+                            <Card.Body>
+                                <Card.Text><strong>Status:</strong> {personagem.status}</Card.Text> 
+                                <Card.Text><strong>Espécie:</strong> {personagem.species}   </Card.Text>
+                                <Card.Text><strong>Gênero:</strong> {personagem.gender}   </Card.Text>
+                                <Card.Text><strong>Origem:</strong> {personagem.origin.name}  </Card.Text>
+                                <Card.Text><strong> Última Localização: </strong> {location ? (<Link to={`/localizacao/${location.id}`}>{location.name}</Link>) : ("Desconhecida")}</Card.Text>                                             
+                                <Card.Text><strong>Resumé:</strong> {obterDescricaoIronica(personagem)}</Card.Text>
+                            </Card.Body>
+                        </Col>
+                    </Row>
+                    <Card.Body>  
+                               
+                        
                     </Card.Body>
                 </Card>               
             </div>
             <Card >
                 <Card.Body>
                     <Card.Title><strong>Participou dos Episódios</strong></Card.Title>
-                    <div className="episodio-card-container">
+                    <div className="episodio-card-container1">
                         {episodios.map((episodio) => (
                             <Card key={episodio.id} className="episodio-card" onClick={() => navigate(`/episodio/${episodio.id}`)}>
                                 <Card.Body>
