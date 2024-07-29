@@ -71,19 +71,19 @@ const Localizacao: React.FC = () => {
   return (
     <div className="central-column1">
       <header><h1>Localizações</h1></header>
-      <Row className="localizacao-container">
+      <Row className="localizacao-container1">
         {localizacoes?.results.map(localizacao => (
           <Col key={localizacao.id} xs={12} sm={6} md={4} lg={3} className="mb-4">
             <Link to={`/localizacao/${localizacao.id}`} className="localizacao-card-link">
-            <Card>
-              <div className="localizacao-card1">
+            <Card className="localizacao-card1">
+             
                 <Card.Title>{localizacao.name}</Card.Title>
                 <Card.Body>
                   <p><strong>Tipo:</strong> {localizacao.type}</p>
                   <p><strong>Dimensão:</strong> {localizacao.dimension}</p>
                   <p><strong>Residentes:</strong> {localizacao.residents.length}</p>
                 </Card.Body>
-              </div>
+              
               </Card>
             </Link>
           </Col>

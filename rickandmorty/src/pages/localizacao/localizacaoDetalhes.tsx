@@ -55,7 +55,7 @@ const LocalizacaoDetalhes: React.FC = () => {
   }
 
   return (
-    <Container fluid className="central-column">
+    <Container  className="central-column">
       <header>
         <h1>Localização: {location.name}</h1>
       </header>
@@ -71,7 +71,7 @@ const LocalizacaoDetalhes: React.FC = () => {
 
       <h2>Residentes</h2>
       {personagens.length > 0 ? (
-        <Row className="personagens-container">
+        <Row className="personagens-container1">
           {personagens.map((personagem) => (
             <Card
               key={personagem.id}

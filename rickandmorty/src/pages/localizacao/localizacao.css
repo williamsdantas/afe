@@ -1,16 +1,16 @@
 .central-column1 {
   display: flex;
-  text-align: center;
-  flex-direction: column;
-  min-height: 80vh;
-  padding: 30px;
-  margin-top: 80px;
-  border-radius: 8px;
-  background-color: white;
+    text-align: center;
+    flex-direction: column;
+    min-height: 80vh;
+    padding: 30px;
+    margin-top: 80px;
+    border-radius: 8px;
+    background-color: white;
   }
   
   
-  .localizacao-card {
+  .localizacao-card1 {
     background: #fff;
     padding: 20px;
     border-radius: 8px;
@@ -39,14 +39,14 @@
     margin-top: 20px;
   }
 
-  .localizacao-container{
-    margin-top: 30px;
+  .localizacao-container1{
+    margin-top: 50px;
     display: flex;
     flex-wrap: wrap;
-    gap: 15px;
+    gap: 10px;
     padding: 20px;
-    max-height: 90vh;
+    max-height: 60vh;
     overflow-y: auto;
-    background-color: #bcbfc1; 
+    background-color: #a1a3a4; 
   }
   

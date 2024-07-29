@@ -1,15 +1,14 @@
 .central-column {
-    display: grid;
-    flex-direction: column;
-    min-height: 80vh;
-    /* Altura responsiva, centralizado verticalmente */
-    max-width: 100%;
-    /* Limite máximo de largura */
-    padding: 20px;
-    border-radius: 8px;
-    background-color: white;
-    overflow: hidden;
-    margin: auto;
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  max-width: 100%;
+  padding: 20px;
+  border-radius: 8px;
+  background-color: white;
+  overflow: hidden;
+  margin: auto;
+    
   }
   
   
