@@ -2,20 +2,19 @@
 import React, { useEffect, useState } from "react";
 import { EpisodioResponse, EpisodioType } from "../../types";
 import { getTodosEpisodios } from "../../services/api/episodioAPI/episodioAPI";
-import './episodio.css';
+import "./episodio.css";
 import Loading from "../../components/loading/loading";
-import { Pagination, Card} from "react-bootstrap";
-import {useNavigate } from "react-router-dom";
-
+import { Pagination, Card } from "react-bootstrap";
+import { useNavigate } from "react-router-dom";
 
 const Episodio: React.FC = () => {
   const [episodios, setEpisodios] = useState<EpisodioType[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [pagina, setPagina] = useState<number>(1);
   const [totalPaginas, setTotalPaginas] = useState<number>(1);
-  
+
   const navigate = useNavigate();
-  
+
   const fetchData = async () => {
     setLoading(true);
 
@@ -24,8 +23,9 @@ const Episodio: React.FC = () => {
         setEpisodios(data.results);
         setTotalPaginas(data.info.pages);
         setLoading(false);
-      }).catch(error => {
-        console.error('Falha ao recuperar os episódios:', error);
+      })
+      .catch((error) => {
+        console.error("Falha ao recuperar os episódios:", error);
         setLoading(false);
       });
   };
@@ -44,12 +44,20 @@ const Episodio: React.FC = () => {
     if (totalPaginas <= 1) return null;
 
     items.push(
-      <Pagination.First key="first" onClick={() => handlePageChange(1)} disabled={pagina === 1} />
+      <Pagination.First
+        key="first"
+        onClick={() => handlePageChange(1)}
+        disabled={pagina === 1}
+      />
     );
 
     if (pagina > 3) items.push(<Pagination.Ellipsis key="ellipsis-start" />);
 
-    for (let i = Math.max(1, pagina - 2); i <= Math.min(totalPaginas, pagina + 2); i++) {
+    for (
+      let i = Math.max(1, pagina - 2);
+      i <= Math.min(totalPaginas, pagina + 2);
+      i++
+    ) {
       items.push(
         <Pagination.Item
           key={i}
@@ -61,26 +69,36 @@ const Episodio: React.FC = () => {
       );
     }
 
-    if (pagina < totalPaginas - 2) items.push(<Pagination.Ellipsis key="ellipsis-end" />);
+    if (pagina < totalPaginas - 2)
+      items.push(<Pagination.Ellipsis key="ellipsis-end" />);
 
     items.push(
-      <Pagination.Last key="last" onClick={() => handlePageChange(totalPaginas)} disabled={pagina === totalPaginas} />
+      <Pagination.Last
+        key="last"
+        onClick={() => handlePageChange(totalPaginas)}
+        disabled={pagina === totalPaginas}
+      />
     );
 
     return items;
-  }
+  };
 
   if (loading) {
     return <Loading />;
   }
 
   return (
-    <div className="episodios-container">
-      <header><h1>Episódios</h1></header>
-      <div className="episodios-grid-container">
+    <div className="episodios-container1">
+      <header>
+        <h1>Episódios</h1>
+      </header>
+      <div className="episodios-grid-container1">
         {episodios.map((episodio) => (
-          
-          <Card key={episodio.id} className="episodio-card" onClick={() => navigate(`/episodio/${episodio.id}`)}>
+          <Card
+            key={episodio.id}
+            className="episodio-card1"
+            onClick={() => navigate(`/episodio/${episodio.id}`)}
+          >
             <Card.Body>
               <Card.Title>{episodio.name}</Card.Title>
               <Card.Text>
@@ -93,11 +111,13 @@ const Episodio: React.FC = () => {
           </Card>
         ))}
       </div>
-      <div className="pagination-controls mt-4">
-        <Pagination>{renderPagination()}</Pagination>
-      </div>
+     
+        <div className="pagination-controls mt-4">
+          <Pagination>{renderPagination()}</Pagination>
+        </div>
+     
     </div>
   );
-}
+};
 
 export default Episodio;
