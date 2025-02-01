@@ -19,7 +19,7 @@ RUN npm install
 
 
 # Gerar build otimizado
-RUN npm run build
+RUN npm run dev
 
 # Etapa final para servir os arquivos estáticos com NGINX
 FROM nginx:alpine
