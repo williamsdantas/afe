@@ -15,19 +15,13 @@ WORKDIR /app
 # Copiar arquivos necessários
 COPY package*.json ./
 COPY rickandmorty /app/
-RUN npm install
+RUN npm install --only=production
 
-# Gerar build otimizado
-RUN npm run build
+# Copiar os arquivos da build da etapa anterior
+COPY --from=build /app/build /app/build
 
-# Etapa final para servir os arquivos estáticos com NGINX
-FROM nginx:alpine
+# Expor a porta 3000
+EXPOSE 3000
 
-# Copiar arquivos do build para o NGINX
-COPY --from=build /app/dist /usr/share/nginx/html
-
-# Expor porta padrão do NGINX
-EXPOSE 80
-
-# Comando para iniciar o NGINX
-CMD ["nginx", "-g", "daemon off;"]
+# Rodar o servidor HTTP usando o Node.js
+CMD ["npx", "serve", "-s", "build", "-l", "3000"]
