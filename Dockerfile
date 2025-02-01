@@ -14,15 +14,16 @@ WORKDIR /app
 
 # Copiar o package.json e o package-lock.json
 COPY package*.json ./
+RUN npm install 
+
 
 # Copiar arquivos necessários
-COPY package*.json ./app/
+#COPY package*.json ./app/
 COPY rickandmorty /app/
-# RUN npm install 
 
-# Rodar o build da aplicação React
-# RUN CD /app/rickandmorty \
-#    && npm run build
+ Rodar o build da aplicação React
+ RUN CD /app/rickandmorty \
+    && npm run build
 
 # Etapa 2: Execução da aplicação com Node.js
 FROM node:18
