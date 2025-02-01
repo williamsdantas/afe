@@ -1,4 +1,4 @@
-r# Etapa de build
+# Etapa de build
 FROM node:16 AS build
 
 # Image Information
