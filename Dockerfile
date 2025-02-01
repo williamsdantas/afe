@@ -23,23 +23,21 @@ RUN npm install --only=production
 # Rodar o build da aplicação React
 RUN npm run build
 
-# Etapa 2: Servir a aplicação com Node.js
+# Etapa 2: Execução da aplicação com Node.js
 FROM node:18
 
 # Definir o diretório de trabalho
 WORKDIR /app
 
-# Copiar o package.json e o package-lock.json novamente
+# Copiar apenas o necessário para execução em produção
 COPY package*.json ./
+COPY --from=build /app/build ./build
 
-# Instalar as dependências de produção
-RUN npm install --only=production
-
-# Copiar os arquivos da build da etapa anterior
-COPY --from=build /app/build /app/build
+# Instalar apenas as dependências necessárias para produção
+RUN npm ci --omit=dev
 
 # Expor a porta 3000
 EXPOSE 3000
 
-# Rodar o servidor HTTP usando o Node.js
+# Rodar o servidor com serve
 CMD ["npx", "serve", "-s", "build", "-l", "3000"]
