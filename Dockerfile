@@ -15,9 +15,6 @@ WORKDIR /app
 # Copiar o package.json e o package-lock.json
 COPY package*.json ./
 
-# Instalar as dependências
-RUN npm install
-
 # Copiar arquivos necessários
 COPY package*.json ./
 COPY rickandmorty /app/
