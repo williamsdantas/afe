@@ -21,8 +21,8 @@ COPY rickandmorty /app/
 # RUN npm install 
 
 # Rodar o build da aplicação React
-RUN CD /app/rickandmorty \
-    && npm run build
+# RUN CD /app/rickandmorty \
+#    && npm run build
 
 # Etapa 2: Execução da aplicação com Node.js
 FROM node:18
