@@ -21,7 +21,7 @@ RUN npm install
 #COPY package*.json ./app/
 COPY rickandmorty /app/
 
- Rodar o build da aplicação React
+ # Rodar o build da aplicação React
  RUN CD /app/rickandmorty \
     && npm run build
 
