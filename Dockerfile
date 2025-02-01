@@ -18,7 +18,7 @@ COPY package*.json ./
 # Copiar arquivos necessários
 COPY package*.json ./
 COPY rickandmorty /app/
-RUN npm install --only=production
+RUN npm install 
 
 # Rodar o build da aplicação React
 RUN npm run build
