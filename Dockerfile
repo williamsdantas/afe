@@ -1,40 +1,27 @@
 # Etapa 1: Construção da aplicação
 FROM node:18 AS build
 
-# Image Information
-LABEL maintener="wad.com" \
+# Informações sobre a imagem
+LABEL maintainer="wad.com" \
       author="Williams Alves Dantas" \
-      create="2025/02/01" \
+      created="2025/02/01" \
       version="1.0.0" \
       description="Imagem para o app Rick and Morty" \
       license="gpl-v3"
 
-# Definir o diretório de trabalho
+# Definir diretório de trabalho
 WORKDIR /app
-
-# Copiar o package.json e o package-lock.json
-COPY package*.json ./
 
 # Copiar arquivos necessários
 COPY package*.json ./
-COPY rickandmorty ./
+COPY rickandmorty/ ./rickandmorty
 
- # Rodar o build da aplicação React
- RUN CD rickandmorty \
-    && npm run build
+# Instalar dependências
+WORKDIR /app/rickandmorty
+RUN npm install
 
-# Etapa 2: Execução da aplicação com Node.js
-FROM node:18
-
-# Definir o diretório de trabalho
-WORKDIR /app
-
-# Copiar apenas o necessário para execução em produção
-COPY package*.json ./
-COPY --from=build /app/build ./build
-
-# Instalar apenas as dependências necessárias para produção
-RUN npm ci --omit=dev
+# Gerar build do React
+RUN npm run build
 
 # Expor a porta 3000
 EXPOSE 3000
