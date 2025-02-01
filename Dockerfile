@@ -16,7 +16,7 @@ WORKDIR /app
 COPY package*.json ./
 
 # Copiar arquivos necessários
-COPY package*.json ./
+COPY package*.json ./app/
 COPY rickandmorty /app/
 # RUN npm install 
 
