@@ -14,6 +14,7 @@ WORKDIR /app
 
 # Copiar arquivos necessários
 COPY package*.json ./
+COPY afe/rickandmorty /app/
 RUN npm install
 
 
