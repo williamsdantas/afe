@@ -1,4 +1,4 @@
-# Etapa de build
+r# Etapa de build
 FROM node:16 AS build
 
 # Image Information
@@ -6,7 +6,7 @@ LABEL maintener="wad.com" \
       author="Williams Alves Dantas" \
       create="2025/02/01" \
       version="1.0.0" \
-      description="Imagem para o app RickandMorty" \
+      description="Imagem para o app Rick and Morty" \
       license="gpl-v3"
       
 # Diretório de trabalho
